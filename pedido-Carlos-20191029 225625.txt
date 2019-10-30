@@ -1,0 +1,13 @@
+=== Resumen de tu pedido ===
+Tus datos son - Nombre: Carlos | Teléfono: 46021003
+Tu pedido será entregado en: Corvalan 1222
+=== Productos solicitados ===
+Pizza: Muzza
+Tamaño: Grande
+Bebida: Mirinda
+===============================
+Total productos: 2un.
+Total delivery: $20
+Descuentos: $58.4
+TOTAL: $691.6
+===============================
