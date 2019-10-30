@@ -1,18 +1,19 @@
 const inquirer = require('inquirer');
+var fs = require('fs');
 
 let preguntas = [
     {
         type: 'confirm',
         name: 'paraLlevar',
-        message: 'La pizza es para llegar?',
+        message: 'La pizza es para llegar?'
     },
     {type:'input',
      name: 'nombreCliente',
      message: 'Ingresá tu nombre',
-     when: function(respuestas)
+     /*when: function(respuestas)
      {
          return respuestas.paraLlevar === true;
-     },
+     },*/
      validate: function(value)
      {
          
@@ -41,6 +42,7 @@ let preguntas = [
         type:'input',
         name: 'telefonoCliente',
         message: 'Ingresá tu numero de telefono',
+        //when: respuestas => respuestas.paraLlevar,
         validate: value => {
            
             if(value.trim() =='')
@@ -64,7 +66,7 @@ let preguntas = [
     {type:'list',
      name: 'tipoPizza',
      message: 'Elegí el tamaño de la pizza',
-     choices: ['Grande','Mediana','Chica']
+     choices: ['Grande','Mediana','Personal']
     },
     {
         type: 'confirm',
@@ -85,16 +87,97 @@ let preguntas = [
         type: 'confirm',
         name: 'clienteHabitual',
         message: '¿Sos cliente habitual?',
+        default: false
     },
     {
      type:'checkbox',
      name: 'saborEmpanadas',
      message: '¿Que gusto de empanadas queres?',
      choices: ['Pollo','JyQ','Choclo','Carne Suave','Carne cortada a Cuchillo','Tomate y queso'],
-     when: respuestas => respuestas.clienteHabitual
+     when: respuestas => respuestas.clienteHabitual,
+     validate: value => value.length > 3 ? 'Puede elegir hasta 3 gustos' : true,
     }
-]
+];
+
+function ticket(respuestas)
+{
+    let total = 0;
+    let descuento = 0;
+    let totalProd = 1;
+    let delivery = 0;
+
+console.log('=== Resumen de tu pedido ===');
+console.log('Tus datos son - Nombre: ' + respuestas.nombreCliente + ' | Teléfono: ' + respuestas.telefonoCliente);
+if(respuestas.paraLlevar)
+{
+    console.log('Tu pedido será entregado en: '+ respuestas.dirCliente);
+    delivery = 20;
+}
+else
+{
+    console.log('Nos indicaste que pasarás a retirar tu pedido');
+}
+
+console.log('=== Productos solicitados ===');
+console.log('Pizza: ' + respuestas.gustoPizza);
+switch(respuestas.tipoPizza)
+{
+    case 'Grande': 
+    console.log('Tamaño: '+ respuestas.tipoPizza);
+    total = total+650;
+    break;
+    case 'Mediana': 
+    console.log('Tamaño: '+ respuestas.tipoPizza);
+    total = total+560;
+    break;
+    case 'Personal': 
+    console.log('Tamaño: '+ respuestas.tipoPizza);
+    total = total+430;
+    break;
+}
+
+if(respuestas.queresBebida)
+{
+    totalProd = totalProd +1;
+    console.log('Bebida: '+ respuestas.bebida);
+    total = total + 80;
+    switch(respuestas.tipoPizza)
+{
+    case 'Grande': 
+    
+    descuento = (total *8) /100;
+    break;
+    case 'Mediana': 
+    
+    descuento = (total *5) /100;
+    break;
+    case 'Personal': 
+    
+    descuento = (total *3) /100;
+    break;
+}
+}
+if(respuestas.clienteHabitual)
+{
+    totalProd = totalProd + 3;
+    console.log('Tus tres empanadas de regalo serán de: ');
+for(let i = 0; i< respuestas.saborEmpanadas.length; i++ ){
+    console.log('\t● '+ respuestas.saborEmpanadas[i]);
+}
+}
+
+console.log('===============================');
+console.log('Total productos: '+ totalProd +'un.');
+delivery > 0 ? console.log('Total delivery: $'+ delivery) : console.log('Total delivery: No delivery');
+console.log('Descuentos: $' + descuento);
+console.log('TOTAL: $' + (total-descuento+delivery));
+console.log('===============================') 
+
+}
+
 
 inquirer
 .prompt(preguntas)
-.then(respuestas => [console.log(respuestas)]);
+
+.then(respuestas => [ticket(respuestas)]);
+
