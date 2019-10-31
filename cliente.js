@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 var fs = require('fs');
+console.log('Bienvenidos a DH-Pizzas... Se tomará su pedido.');
 
 let preguntas = [
     {
@@ -199,15 +200,43 @@ console.log('TOTAL: $' + (total-descuento+delivery));
 txtString+= 'TOTAL: $' + (total-descuento+delivery) +'\n';
 console.log('===============================') 
 txtString+='===============================\n';
-var utc = new Date().toLocaleString().slice(0,19).replace(/-|:/gi,'');
+
+
+var fecha = new Date().toLocaleString().slice(0,10);
+var hora = new Date().toLocaleString().slice(11,19);
+console.log('Fecha: '+fecha);
+console.log('Hora: '+hora);
+respuestas.totalProductos = total;
+respuestas.descuento = descuento;
+respuestas.fecha = fecha;
+respuestas.hora = hora;
+
+txtString+='Fecha: '+ fecha+'\n';
+txtString+='Hora: '+ hora+'\n';
+
+/*var utc = new Date().toLocaleString().slice(0,19).replace(/-|:/gi,'');
 let nameFile = 'pedido-'+respuestas.nombreCliente+'-'+ utc + '.txt';
 fs.writeFile(nameFile,txtString,(err) => {
     if (err) throw err;
     console.log('El pedido se guardó correctamente.');
     console.log(nameFile);
-  });
-}
+});*/
+//--------------------------------------------------------------
 
+
+const rutaArchivo = __dirname+'/pedidos.json';
+
+var infoArchivo = fs.readFileSync(rutaArchivo,'utf8');
+
+var contenidoPedidos = infoArchivo.length == 0 ? contenidoPedidos = [] : JSON.parse(infoArchivo);
+
+respuestas.idPedido = parseInt(contenidoPedidos.length) +1;
+
+contenidoPedidos.push(respuestas);
+
+fs.writeFileSync(rutaArchivo,JSON.stringify(contenidoPedidos));
+
+}
 
 inquirer
 .prompt(preguntas)
