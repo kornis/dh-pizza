@@ -1,31 +1,32 @@
 
-¡Reporte generado con éxito!
-
+    ¡Reporte generado con éxito!
+    
 |===*** Reporte de ventas ***====|
-Fecha de generacion: 2019-11-5
-Hora: 23:25:00
-
+    Fecha de generacion: 2019-11-5
+    Hora: 23:55:40
+    
 |===*** Cantidad de pedidos realizados ***====|
-Total: 3
-
+    Total: 3
+    
 |===*** Cantidad de pedidos para delivery ***====|
-Total: 2
-Total Muzzarella: 2
-
+    Total: 2
+    Total Muzzarella: 2
+    
 |===*** Cantidad de pizzas vendidas por gusto ***====|
-Total Jamon y Morron: 1
-Total Napolitana: 0
-
+    Total Jamon y Morron: 1
+    Total Napolitana: 0
+    
 |===*** Cantidad de pizzas vendidas por tamaño ***====|
-Total Personal: 1
-Total Mediana: 1
-Total Grande: 1
-
+    Total Personal: 1
+    Total Mediana: 1
+    Total Grande: 1
+    
 |===*** Cantidad de pedidos con bebida ***====|
-Total: 2
-
+    Total: 2
+    
 |===*** Cantidad de clientes habituales ***====|
-Total: 1
-
+    Total: 1
+    
 |===*** Cantidad de empanadas regaladas ***====|
-Total: 3
+    Total: 3
+    
