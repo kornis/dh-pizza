@@ -1,1 +1,53 @@
-[{"paraLlevar":false,"nombreCliente":"Fede","telefonoCliente":"46027427","gustoPizza":"Muzza","tipoPizza":"Grande","queresBebida":false,"clienteHabitual":false,"totalProductos":"Total Productos: 650","descuento":"Descuento: 0","fecha":"Fecha: 2019-10-31","hora":"Hora: 20:26:17","idPedido":"ID: 01"},{"paraLlevar":true,"nombreCliente":"Carlos","dirCliente":"Cañada de gomez 6868","telefonoCliente":"1168129970","gustoPizza":"Napo","tipoPizza":"Grande","queresBebida":false,"clienteHabitual":false,"totalProductos":"Total Productos: 650","descuento":"Descuento: 0","fecha":"Fecha: 2019-10-31","hora":"Hora: 20:27:09","idPedido":"ID: 11"},{"paraLlevar":false,"nombreCliente":"pepe","telefonoCliente":"12312312312","gustoPizza":"Muzza","tipoPizza":"Grande","queresBebida":true,"bebida":"Pepsi","clienteHabitual":false,"totalProductos":730,"descuento":58.4,"fecha":"2019-10-31","hora":"20:29:35","idPedido":3}]
+[
+ {
+  "paraLlevar": true,
+  "nombreCliente": "Fede",
+  "dirCliente": "Lima 1111",
+  "telefonoCliente": "5644654646",
+  "gustoPizza": "Muzza",
+  "tipoPizza": "Grande",
+  "queresBebida": true,
+  "bebida": "7Up",
+  "clienteHabitual": true,
+  "saborEmpanadas": [
+   "Pollo",
+   "JyQ",
+   "Choclo"
+  ],
+  "totalProductos": 730,
+  "descuento": 58.4,
+  "fecha": "2019-11-5 ",
+  "hora": "3:22:34",
+  "idPedido": 1
+ },
+ {
+  "paraLlevar": false,
+  "nombreCliente": "Carlos",
+  "telefonoCliente": "54646454645",
+  "gustoPizza": "Muzza",
+  "tipoPizza": "Personal",
+  "queresBebida": false,
+  "clienteHabitual": false,
+  "totalProductos": 430,
+  "descuento": 0,
+  "fecha": "2019-11-5 ",
+  "hora": "3:22:47",
+  "idPedido": 2
+ },
+ {
+  "paraLlevar": true,
+  "nombreCliente": "Pepe",
+  "dirCliente": "Fonrouge 3070",
+  "telefonoCliente": "654321313",
+  "gustoPizza": "Jamon y Morrones",
+  "tipoPizza": "Mediana",
+  "queresBebida": true,
+  "bebida": "Pepsi",
+  "clienteHabitual": false,
+  "totalProductos": 640,
+  "descuento": 32,
+  "fecha": "2019-11-5 ",
+  "hora": "3:23:08",
+  "idPedido": 3
+ }
+]
